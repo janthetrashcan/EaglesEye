@@ -11,6 +11,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.createGraph
+import com.humanerrors.eagleseye.nav.BottomNavigationBar
+import com.humanerrors.eagleseye.nav.Screen
+import com.humanerrors.eagleseye.screens.ExploreScreen
+import com.humanerrors.eagleseye.screens.SavedScreen
+import com.humanerrors.eagleseye.screens.UpdatesScreen
 import com.humanerrors.eagleseye.ui.theme.EaglesEyeTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,9 +30,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EaglesEyeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                val navController = rememberNavController()
+
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    bottomBar = { BottomNavigationBar(navController) }
+                ) { innerPadding ->
+                    MainScreen(
+                        navController = navController,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -31,17 +47,45 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
+fun MainScreen(
+    navController: NavHostController,
+    modifier: Modifier = Modifier
+) {
+    val graph = navController.createGraph(startDestination = Screen.Explore.route) {
+        composable(route = Screen.Explore.route) {
+            ExploreScreen()
+        }
+        composable(route = Screen.Saved.route) {
+            SavedScreen()
+        }
+        composable(route = Screen.Updates.route) {
+            UpdatesScreen()
+        }
+    }
+
+    NavHost(
+        navController = navController,
+        graph = graph,
         modifier = modifier
     )
 }
 
+
+
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun MainScreenPreview() {
     EaglesEyeTheme {
-        Greeting("Android")
+        val navController = rememberNavController()
+
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            bottomBar = { BottomNavigationBar(navController) }
+        ) { innerPadding ->
+            MainScreen(
+                navController = navController,
+                modifier = Modifier.padding(innerPadding)
+            )
+        }
     }
 }
