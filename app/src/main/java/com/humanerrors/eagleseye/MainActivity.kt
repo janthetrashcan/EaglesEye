@@ -7,11 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -24,21 +22,32 @@ import com.humanerrors.eagleseye.screens.SavedScreen
 import com.humanerrors.eagleseye.screens.UpdatesScreen
 import com.humanerrors.eagleseye.ui.theme.AppTheme
 
+/**
+ * The main activity of the application.
+ *
+ * This class serves as the entry point for the app and is responsible for setting up
+ * the UI using Jetpack Compose. It initializes the navigation controller, sets up the
+ * bottom navigation bar, and defines the overall layout of the app.
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+
             AppTheme {
+                // Create a NavHostController to manage navigation.
                 val navController = rememberNavController()
 
+                // Scaffold provides a basic layout structure for the app.
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = { BottomNavigationBar(navController) }
                 ) { innerPadding ->
+                    // Display the main screen, passing the NavHostController and padding.
                     MainScreen(
                         navController = navController,
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding) // Apply the padding to the main screen content.
                     )
                 }
             }
@@ -46,6 +55,24 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
+/**
+ * The main screen of the application, responsible for setting up the navigation graph.
+ *
+ * This composable function defines the navigation structure of the app using a [NavHost].
+ * Each destination is associated with a specific screen composable.
+ *
+ * In adding new screens, add a new data object on [Screen] representing a screen alongside its route.
+ * Then, add a file containing a composable function with the screen content within the `screens` directory.
+ * Add a `NavigationItem` within the list `navigationItems` representing the new route.
+ * Finally, declare a new composable within this function and set its route and body accordingly.
+ *
+ * @param navController The [NavHostController] that manages the navigation within the app.
+ *                      It is used to create the navigation graph and to navigate between
+ *                      different screens.
+ * @param modifier The [Modifier] to be applied to the [NavHost]. This allows for
+ *                 customization of the layout and appearance of the navigation host.
+ */
 @Composable
 fun MainScreen(
     navController: NavHostController,
