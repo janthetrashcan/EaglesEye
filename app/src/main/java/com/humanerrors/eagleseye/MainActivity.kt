@@ -22,14 +22,14 @@ import com.humanerrors.eagleseye.nav.Screen
 import com.humanerrors.eagleseye.screens.ExploreScreen
 import com.humanerrors.eagleseye.screens.SavedScreen
 import com.humanerrors.eagleseye.screens.UpdatesScreen
-import com.humanerrors.eagleseye.ui.theme.EaglesEyeTheme
+import com.humanerrors.eagleseye.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            EaglesEyeTheme {
+            AppTheme {
                 val navController = rememberNavController()
 
                 Scaffold(
@@ -75,7 +75,7 @@ fun MainScreen(
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
-    EaglesEyeTheme {
+    AppTheme {
         val navController = rememberNavController()
 
         Scaffold(
