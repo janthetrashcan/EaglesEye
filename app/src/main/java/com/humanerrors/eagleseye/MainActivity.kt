@@ -20,7 +20,7 @@ import com.humanerrors.eagleseye.nav.Screen
 import com.humanerrors.eagleseye.screens.ExploreScreen
 import com.humanerrors.eagleseye.screens.SavedScreen
 import com.humanerrors.eagleseye.screens.UpdatesScreen
-import com.humanerrors.eagleseye.ui.theme.EaglesEyeTheme
+import com.humanerrors.eagleseye.ui.theme.AppTheme
 
 /**
  * The main activity of the application.
@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
-            EaglesEyeTheme {
+            AppTheme {
                 // Create a NavHostController to manage navigation.
                 val navController = rememberNavController()
 
@@ -102,7 +102,7 @@ fun MainScreen(
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
-    EaglesEyeTheme {
+    AppTheme {
         val navController = rememberNavController()
 
         Scaffold(
