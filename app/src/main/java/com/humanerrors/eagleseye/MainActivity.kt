@@ -132,27 +132,29 @@ fun MainScreenPreview() {
 @Preview(showBackground = true)
 @Composable
 fun Header() {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.primary)
-            .padding(15.dp)
-    ) {
-        // SCHOOL LOGO
-        Image(
-            painter = painterResource(id = R.drawable.adzu_seal),
-            contentDescription = "Header Icon",
+    AppTheme {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .size(60.dp)
-                .padding(end = 8.dp)
-        )
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.primary)
+                .padding(15.dp)
+        ) {
+            // SCHOOL LOGO
+            Image(
+                painter = painterResource(id = R.drawable.adzu_seal),
+                contentDescription = "Header Icon",
+                modifier = Modifier
+                    .size(60.dp)
+                    .padding(end = 8.dp)
+            )
 
-        // HEADER TITLE
-        Text(
-            text = "AdZU EaglesEye",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.surface
-        )
+            // HEADER TITLE
+            Text(
+                text = "AdZU EaglesEye",
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.surface
+            )
+        }
     }
 }

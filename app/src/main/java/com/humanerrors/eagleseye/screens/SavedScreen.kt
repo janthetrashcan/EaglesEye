@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.humanerrors.eagleseye.Header
 import com.humanerrors.eagleseye.R
+import com.humanerrors.eagleseye.ui.theme.AppTheme
 
 @Composable
 fun SavedScreen(){
@@ -121,5 +122,17 @@ fun SavedItemCard(itemText: String) {
 @Preview(showBackground = true)
 @Composable
 fun SavedScreenPreview() {
-    SavedScreen()
+    AppTheme {
+        SavedScreen()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SavedItemCardPreview() {
+    AppTheme {
+        Box(modifier = Modifier.padding(10.dp)) {
+            SavedItemCard("Lorem Bruh Ipsum Dolor")
+        }
+    }
 }

@@ -23,7 +23,7 @@ fun BottomNavigationBar(
     NavigationBar(
         modifier = modifier
     ) {
-        navigationItems.forEachIndexed { index, item ->
+        navigationItems().forEachIndexed { index, item ->
             NavigationBarItem(
                 selected = selectedNavigationIndex.intValue == index,
                 onClick = {
@@ -31,8 +31,14 @@ fun BottomNavigationBar(
                     navController.navigate(item.route)
                 },
                 icon = {
-                    // TODO: Change Icon based on selected status
-                    Icon(imageVector = item.icon, contentDescription = item.title)
+                    Icon(
+                        imageVector = if (selectedNavigationIndex.intValue == index) {
+                            item.iconSelected
+                        } else {
+                            item.icon
+                        },
+                        contentDescription = item.title
+                    )
                 },
                 label = {
                     Text(item.title)
