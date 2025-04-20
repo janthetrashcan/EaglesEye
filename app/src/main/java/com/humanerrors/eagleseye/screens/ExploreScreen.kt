@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.humanerrors.eagleseye.Header
 import com.humanerrors.eagleseye.R
 
 @Preview(showBackground = true)
@@ -32,8 +33,6 @@ fun ExploreScreen() {
         modifier = Modifier
             .fillMaxSize()
     ) {
-        Header()
-
         // PLACEHOLDER 1
         Text(
             text = "Explore AdZU",
@@ -72,35 +71,6 @@ fun ExploreScreen() {
                     color = MaterialTheme.colorScheme.primary,
                     shape = RoundedCornerShape(12.dp),
                 )
-        )
-    }
-}
-
-// Header with Image and Text
-@Preview(showBackground = true)
-@Composable
-fun Header() {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.primary)
-            .padding(15.dp)
-    ) {
-        // SCHOOL LOGO
-        Image(
-            painter = painterResource(id = R.drawable.adzu_seal),
-            contentDescription = "Header Icon",
-            modifier = Modifier
-                .size(60.dp)
-                .padding(end = 8.dp)
-        )
-
-        // HEADER TITLE
-        Text(
-            text = "AdZU EaglesEye",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.surface
         )
     }
 }
