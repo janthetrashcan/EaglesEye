@@ -7,9 +7,11 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val lightScheme = lightColorScheme(
     primary = primaryLight,
@@ -255,23 +257,37 @@ val unspecified_scheme = ColorFamily(
 fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable() () -> Unit
-) {
-  val colorScheme = when {
-      dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-          val context = LocalContext.current
-          if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-      }
-      
-      darkTheme -> darkScheme
-      else -> lightScheme
-  }
+    ) {
+        val colorScheme = when {
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            val context = LocalContext.current
+            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+        }
 
-  MaterialTheme(
-    colorScheme = colorScheme,
-    typography = AppTypography,
-    content = content
-  )
+        darkTheme -> darkScheme
+        else -> lightScheme
+        }
+
+    // Force status bar icons to be white
+    // TODO: Look for other solutions, deprecated API
+    val systemUiController = rememberSystemUiController()
+    val useDarkIcons = !isSystemInDarkTheme()
+
+    DisposableEffect(systemUiController, useDarkIcons) {
+        systemUiController.setSystemBarsColor(
+            color = Color.Transparent,
+            // darkIcons = useDarkIcons
+        )
+
+        onDispose {}
+    }
+
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = AppTypography,
+        content = content
+    )
 }
 
