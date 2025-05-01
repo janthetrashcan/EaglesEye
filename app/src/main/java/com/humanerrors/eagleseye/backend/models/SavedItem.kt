@@ -1,11 +1,11 @@
-package com.humanerrors.eagleseye.models
+package com.humanerrors.eagleseye.backend.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class SavedItemModel(
+data class SavedItem(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val title: String,
