@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
@@ -24,17 +25,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
+import androidx.room.Room
+import com.humanerrors.eagleseye.backend.db.EaglesEyeDatabase
 import com.humanerrors.eagleseye.nav.BottomNavigationBar
 import com.humanerrors.eagleseye.nav.Screen
 import com.humanerrors.eagleseye.screens.ExploreScreen
 import com.humanerrors.eagleseye.screens.SavedScreen
 import com.humanerrors.eagleseye.screens.UpdatesScreen
 import com.humanerrors.eagleseye.ui.theme.AppTheme
+import com.humanerrors.eagleseye.viewmodels.SavedItemViewModel
 
 /**
  * The main activity of the application.
@@ -44,6 +50,22 @@ import com.humanerrors.eagleseye.ui.theme.AppTheme
  * bottom navigation bar, and defines the overall layout of the app.
  */
 class MainActivity : ComponentActivity() {
+    private val db by lazy {
+        Room.databaseBuilder(
+            context = applicationContext,
+            klass = EaglesEyeDatabase::class.java,
+            name = "eagles-eye.db"
+        ).build()
+    }
+    private val savedItemViewModel by viewModels<SavedItemViewModel> (
+        factoryProducer = {
+            object : ViewModelProvider.Factory {
+                override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                    return SavedItemViewModel(db.savedItemDao) as T
+                }
+            }
+        }
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
