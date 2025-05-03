@@ -11,6 +11,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 
 @Composable
 fun BottomNavigationBar(
@@ -27,8 +28,13 @@ fun BottomNavigationBar(
             NavigationBarItem(
                 selected = selectedNavigationIndex.intValue == index,
                 onClick = {
-                    selectedNavigationIndex.intValue = index
-                    navController.navigate(item.route)
+                    if (item.title == "Updates") {
+                        // Navigate to RedirectToFacebookScreen instead
+                        navController.navigate(Screen.Updates.route)
+                    } else {
+                        selectedNavigationIndex.intValue = index
+                        navController.navigate(item.route)
+                    }
                 },
                 icon = {
                     Icon(
@@ -47,7 +53,6 @@ fun BottomNavigationBar(
                     selectedIconColor = MaterialTheme.colorScheme.surface,
                     indicatorColor = MaterialTheme.colorScheme.primary
                 )
-
             )
         }
     }
