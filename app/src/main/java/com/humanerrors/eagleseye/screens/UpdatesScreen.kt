@@ -28,7 +28,6 @@ fun UpdatesScreen(navController: NavHostController){
         openFacebookPage(context, facebookUrl)
         navController.popBackStack()
     }
-    
     Box (
         modifier = Modifier
         .fillMaxSize(),

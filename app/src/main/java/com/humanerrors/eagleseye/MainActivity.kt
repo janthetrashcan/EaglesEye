@@ -37,6 +37,9 @@ import com.humanerrors.eagleseye.screens.ExploreScreen
 import com.humanerrors.eagleseye.screens.SavedScreen
 import com.humanerrors.eagleseye.screens.UpdatesScreen
 import com.humanerrors.eagleseye.ui.theme.AppTheme
+import com.humanerrors.eagleseye.components.Header
+import com.humanerrors.eagleseye.nav.SubScreenConstants
+import com.humanerrors.eagleseye.screens.MapScreen
 
 /**
  * The main activity of the application.
@@ -97,13 +100,18 @@ fun MainScreen(
 ) {
     val graph = navController.createGraph(startDestination = Screen.Explore.route) {
         composable(route = Screen.Explore.route) {
-            ExploreScreen()
+            ExploreScreen(navController)
         }
         composable(route = Screen.Saved.route) {
             SavedScreen()
         }
         composable(route = Screen.Updates.route) {
             UpdatesScreen(navController)
+        }
+
+        // Non Nav Bar screens
+        composable(route = SubScreenConstants.MAP_SCREEN_ROUTE) {
+            MapScreen()
         }
     }
 
@@ -134,33 +142,3 @@ fun MainScreenPreview() {
     }
 }
 
-// Header with Image and Text
-@OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true)
-@Composable
-fun Header() {
-    AppTheme {
-        TopAppBar(
-            title = {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Image(
-                        painter = painterResource(id = R.drawable.adzu_seal),
-                        contentDescription = "Header Icon",
-                        modifier = Modifier
-                            .size(36.dp)
-                    )
-                    Text(
-                        modifier = Modifier
-                            .padding(start = 12.dp),
-                        text = "AdZU EaglesEye",
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-            },
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
-            )
-        )
-    }
-}
