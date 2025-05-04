@@ -22,24 +22,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.humanerrors.eagleseye.R
-import com.humanerrors.eagleseye.components.CarouselItem
+import com.humanerrors.eagleseye.backend.models.buildingItems
 
 @ExperimentalMaterial3Api
 @Composable
 fun HomeCarousel(
     modifier: Modifier = Modifier,
 ) {
-    val items =
-        listOf(
-            CarouselItem(0, R.drawable.home_carousel_image_1, R.string.home_carousel_image_1_description),
-            CarouselItem(1, R.drawable.home_carousel_image_2, R.string.home_carousel_image_2_description),
-            CarouselItem(2, R.drawable.home_carousel_image_3, R.string.home_carousel_image_3_description),
-            CarouselItem(3, R.drawable.home_carousel_image_4, R.string.home_carousel_image_4_description),
-            CarouselItem(4, R.drawable.home_carousel_image_5, R.string.home_carousel_image_5_description),
-        )
+    val items = buildingItems()
     val itemWidth = 350.dp
     val carouselWidth = 412.dp
-    val carouselHeight = 250.dp
+    val carouselHeight = 200.dp
     val itemSpacing = 8.dp
     val contentPadding = PaddingValues(horizontal = (carouselWidth - itemWidth) / 2)
     val carouselState = rememberCarouselState { items.size }
@@ -59,8 +52,8 @@ fun HomeCarousel(
         val item = items[i]
         Image(
             modifier = Modifier.height(carouselHeight).maskClip(MaterialTheme.shapes.extraLarge),
-            painter = painterResource(id = item.imageResId),
-            contentDescription = stringResource(item.contentDescriptionResId),
+            painter = painterResource(id = item.imageSrc),
+            contentDescription = item.title,
             contentScale = ContentScale.Crop
         )
     }

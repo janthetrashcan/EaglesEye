@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.humanerrors.eagleseye.R
-import com.humanerrors.eagleseye.backend.models.BuildingInfo
+import com.humanerrors.eagleseye.backend.models.buildingItems
 import com.humanerrors.eagleseye.components.HomeCarousel
 import com.humanerrors.eagleseye.components.ItemCard
 import com.humanerrors.eagleseye.nav.SubScreenConstants
@@ -41,12 +41,6 @@ import com.humanerrors.eagleseye.nav.SubScreenConstants
 fun ExploreScreen(
     navController: NavController = rememberNavController()
 ) {
-    val buildingItems = listOf(
-        BuildingInfo(id = 0, title = "Bellarmine-Campion Hall", description = R.string.lorem, imageSrc = R.drawable.home_carousel_image_1),
-        BuildingInfo(id = 1, title = "Canisius-Gonzaga Building", description = R.string.lorem, imageSrc = R.drawable.home_carousel_image_2),
-        BuildingInfo(id = 2, title = "LRC Building", description = R.string.lorem, imageSrc = R.drawable.home_carousel_image_3),
-    )
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -97,7 +91,7 @@ fun ExploreScreen(
             modifier = Modifier
                 .padding(20.dp)
         ) {
-            for (buildingItem in buildingItems) {
+            for (buildingItem in buildingItems()) {
                 ItemCard(buildingInfo = buildingItem,
                     modifier = Modifier
                         .padding(top = 10.dp)

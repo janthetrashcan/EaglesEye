@@ -25,7 +25,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
-import com.humanerrors.eagleseye.backend.models.BuildingInfo
+import com.humanerrors.eagleseye.backend.models.Info
 import com.humanerrors.eagleseye.nav.BottomNavigationBar
 import com.humanerrors.eagleseye.nav.Screen
 import com.humanerrors.eagleseye.screens.ExploreScreen
@@ -138,7 +138,7 @@ fun MainScreen(
             CBuildingScreen(cLobbyFloorState.intValue)
         }
         composable(route = SubScreenConstants.BUILDING_SCREEN_ROUTE) {
-            BuildingScreen(buildingInfo = BuildingInfo(id = 0))
+            BuildingScreen(buildingInfo = Info.BuildingInfo(id = 0))
         }
     }
 

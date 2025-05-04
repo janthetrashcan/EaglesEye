@@ -23,5 +23,25 @@
     <string name="lorem">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi justo, imperdiet vitae ultrices et, finibus sit amet lectus. Aliquam erat volutpat. Integer vel nibh ipsum. Integer at ex purus. Morbi id leo ut orci fringilla congue at id nunc. Aenean vel tempor augue. Nulla ut neque nisl. Aliquam scelerisque dolor nec iaculis iaculis. In eget dictum orci. Ut sollicitudin mollis felis non suscipit. Morbi semper vehicula urna ut pulvinar. Proin et sapien eu sem vehicula congue vitae a magna. Vestibulum nibh mi, viverra eget dui ut, iaculis iaculis diam. Sed urna nunc, efficitur viverra commodo vel, pulvinar elementum eros.
     </string>
-    <string name="title_activity_building_info">BuildingInfoActivity</string>
+    <string name="title_activity_item_info">ItemInfoActivity</string>
+
+
+    <!-- BUILDING INFO -->
+    <string name="building_0_title">Canisius &amp; Gonzaga Building</string>
+    <string name="building_0_description">Canisius &amp; Gonzaga Building</string>
+
+    <string name="building_1_title">Bellarmine &amp; Campion Building</string>
+    <string name="building_1_description">Bellarmine &amp; Campion Building</string>
+
+
+    <!-- OFFICE INFO -->
+    <string name="office_0_title">Office of Student Affairs</string>
+    <string name="office_0_description">The Office of Student Affairs (OSA) is responsible for the coordination, leadership development programs, and supervision of all academic and non-academic activities of students’ in-campus and off-campus.</string>
+
+    <string name="office_1_title">Registrar’s Office </string>
+    <string name="office_1_description">The Ateneo de Zamboanga University Registrar’s Office serves as the institutional custodian of academic records and student information at this prestigious educational institution located in Zamboanga City, Philippines. With unwavering dedication, the Registrar’s Office meticulously maintains and manages the academic records of students, ensuring the accuracy and integrity of transcripts, diplomas, and other essential documents. Beyond record-keeping, this office plays a pivotal role in facilitating student enrollment, course registration, and academic scheduling. Their commitment to excellence and efficiency contributes to the smooth functioning of the university and supports the educational journey of countless students seeking knowledge and personal growth at Ateneo de Zamboanga University.</string>
+
+    <string name="office_2_title">Center for Information Technology Services</string>
+    <string name="office_2_description">The Center for Information and Technology Service (CITS) is one of the university’s central offices that is responsible for managing and maintaining the institution’s computer systems and technology infrastructure. This includes managing hardware and software systems, providing technical support, managing network and data security, and ensuring that the technology needs of the community are met.
+</string>
 </resources>

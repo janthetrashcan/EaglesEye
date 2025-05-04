@@ -28,13 +28,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.humanerrors.eagleseye.BuildingInfoActivity
-import com.humanerrors.eagleseye.backend.models.BuildingInfo
+import com.humanerrors.eagleseye.ItemInfoActivity
+import com.humanerrors.eagleseye.backend.models.Info
 
 @Composable
 fun ItemCard (
     modifier: Modifier = Modifier,
-    buildingInfo: BuildingInfo = BuildingInfo(id = 0),
+    buildingInfo: Info.BuildingInfo = Info.BuildingInfo(id = 0),
 ) {
     val context = LocalContext.current
 
@@ -44,8 +44,8 @@ fun ItemCard (
         ),
         modifier = modifier,
         onClick = {
-            val intent = Intent(context, BuildingInfoActivity::class.java)
-            intent.putExtra("buildingInfo", buildingInfo)
+            val intent = Intent(context, ItemInfoActivity::class.java)
+            intent.putExtra("info", buildingInfo)
             context.startActivity(intent)
         },
     ) {
@@ -78,7 +78,7 @@ fun ItemCard (
                     modifier = Modifier
                         .padding(start = 12.dp, top = 12.dp)
                         .fillMaxWidth(),
-                    textAlign = TextAlign.Justify,
+                    textAlign = TextAlign.Start,
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis,
                 )
