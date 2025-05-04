@@ -41,7 +41,7 @@ fun HeaderSubview() {
             title = {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Image(
-                        painter = painterResource(id = R.drawable.adzu_seal),
+                        painter = painterResource(id = R.drawable.icon_border),
                         contentDescription = "Header Icon",
                         modifier = Modifier
                             .size(36.dp)
@@ -49,7 +49,7 @@ fun HeaderSubview() {
                     Text(
                         modifier = Modifier
                             .padding(start = 12.dp),
-                        text = "AdZU EaglesEye",
+                        text = "EaglesEye",
                         style = MaterialTheme.typography.headlineSmall.copy(),
                         fontWeight = FontWeight.Bold
                     )
@@ -64,7 +64,7 @@ fun HeaderSubview() {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = "Back",
-                        tint = MaterialTheme.colorScheme.onPrimary
+                        tint = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                 }
             }
