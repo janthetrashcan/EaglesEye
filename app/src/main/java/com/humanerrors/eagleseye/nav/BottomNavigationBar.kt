@@ -1,5 +1,6 @@
 package com.humanerrors.eagleseye.nav
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -10,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 
@@ -47,7 +50,12 @@ fun BottomNavigationBar(
                     )
                 },
                 label = {
-                    Text(item.title)
+                    Text(
+                        text = item.title,
+                        style = MaterialTheme.typography.bodyMedium.copy(fontSize = 12.sp),
+                        modifier = Modifier
+                            .padding(top = 2.dp),
+                    )
                 },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = MaterialTheme.colorScheme.surface,
