@@ -47,6 +47,9 @@ dependencies {
     // For Carousel
     implementation(libs.material3)
 
+    // For Speed Dial
+    implementation(libs.android.speed.dial.compose)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
