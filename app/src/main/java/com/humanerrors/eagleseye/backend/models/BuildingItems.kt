@@ -19,6 +19,13 @@ fun buildingItems () = listOf (
         description = R.string.building_1_description,
         imageSrc = R.drawable.building_1,
         offices = officeItems().filter { it.buildingId == 1 }
+    ),
+    Info.BuildingInfo (
+        id = 2,
+        title = stringResource(R.string.building_2_title),
+        description = R.string.building_2_description,
+        imageSrc = R.drawable.building_2,
+        offices = officeItems().filter { it.buildingId == 2 }
     )
 )
 

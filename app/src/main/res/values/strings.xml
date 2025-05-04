@@ -1,30 +1,15 @@
 <resources>
     <string name="app_name">EaglesEye</string>
 
-    <string name="home_carousel_image_1_description">
-        Bellarmine-Campion Building
-    </string>
-    <string name="home_carousel_image_2_description">
-        Canisius-Gonzaga Building
-    </string>
-    <string name="home_carousel_image_3_description">
-        Learning Resource Center (LRC) Building
-    </string>
-    <string name="home_carousel_image_4_description">
-        Sauras Building
-    </string>
-    <string name="home_carousel_image_5_description">
-        Faustino W Saavedra (FWS) Building
-    </string>
-    <string name="home_carousel_image_6_description">
-        MPCC 2
-    </string>
-
     <string name="lorem">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi justo, imperdiet vitae ultrices et, finibus sit amet lectus. Aliquam erat volutpat. Integer vel nibh ipsum. Integer at ex purus. Morbi id leo ut orci fringilla congue at id nunc. Aenean vel tempor augue. Nulla ut neque nisl. Aliquam scelerisque dolor nec iaculis iaculis. In eget dictum orci. Ut sollicitudin mollis felis non suscipit. Morbi semper vehicula urna ut pulvinar. Proin et sapien eu sem vehicula congue vitae a magna. Vestibulum nibh mi, viverra eget dui ut, iaculis iaculis diam. Sed urna nunc, efficitur viverra commodo vel, pulvinar elementum eros.
     </string>
     <string name="title_activity_item_info">ItemInfoActivity</string>
 
+
+    <string name="explore_adzu_subtitle">
+        Explore the different corners of the AdZU campus!
+    </string>
 
     <!-- BUILDING INFO -->
     <string name="building_0_title">Canisius &amp; Gonzaga Building</string>
@@ -32,6 +17,9 @@
 
     <string name="building_1_title">Bellarmine &amp; Campion Building</string>
     <string name="building_1_description">Bellarmine &amp; Campion Building</string>
+
+    <string name="building_2_title">Learning Resource Center Building</string>
+    <string name="building_2_description">Learning Resource Center Building</string>
 
 
     <!-- OFFICE INFO -->
