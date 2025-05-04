@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -38,6 +39,9 @@ fun ExploreScreen(
         modifier = Modifier
             .fillMaxSize()
     ) {
+        Button(onClick = { navController.navigate(route = SubScreenConstants.BUILDING_SCREEN_ROUTE) }) {
+            Text (text = "open building info screen")
+        }
         // PLACEHOLDER 1
         Text(
             text = "Explore AdZU",

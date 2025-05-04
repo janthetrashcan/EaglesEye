@@ -1,36 +1,21 @@
 package com.humanerrors.eagleseye
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
+import com.humanerrors.eagleseye.components.BuildingInfo
 import com.humanerrors.eagleseye.nav.BottomNavigationBar
 import com.humanerrors.eagleseye.nav.Screen
 import com.humanerrors.eagleseye.screens.ExploreScreen
@@ -39,6 +24,7 @@ import com.humanerrors.eagleseye.screens.UpdatesScreen
 import com.humanerrors.eagleseye.ui.theme.AppTheme
 import com.humanerrors.eagleseye.components.Header
 import com.humanerrors.eagleseye.nav.SubScreenConstants
+import com.humanerrors.eagleseye.screens.BuildingScreen
 import com.humanerrors.eagleseye.screens.MapScreen
 
 /**
@@ -112,6 +98,9 @@ fun MainScreen(
         // Non Nav Bar screens
         composable(route = SubScreenConstants.MAP_SCREEN_ROUTE) {
             MapScreen()
+        }
+        composable(route = SubScreenConstants.BUILDING_SCREEN_ROUTE) {
+            BuildingScreen(buildingInfo = BuildingInfo(id = 0))
         }
     }
 
