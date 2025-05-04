@@ -72,7 +72,8 @@ fun ItemCard (
                     style = MaterialTheme.typography.bodyMedium.copy(
                         fontWeight = FontWeight.Medium,
                         fontSize = 12.sp,
-                        letterSpacing = (-0.4).sp
+                        letterSpacing = (-0.4).sp,
+                        lineHeight = 16.sp
                     ),
                     color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier

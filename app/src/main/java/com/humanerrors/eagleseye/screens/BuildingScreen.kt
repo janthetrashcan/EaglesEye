@@ -3,6 +3,7 @@ package com.humanerrors.eagleseye.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,6 +21,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -61,6 +63,8 @@ fun BuildingScreen (
             HorizontalDivider(thickness = 2.dp)
             Text (
                 text = context.getString(buildingInfo.description),
+                textAlign = TextAlign.Justify,
+                lineHeight = 24.sp,
                 style = MaterialTheme.typography.bodyMedium.copy(fontSize = 16.sp),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier
@@ -83,7 +87,9 @@ fun BuildingScreen (
                 )
             }
         }
-
-
+        Spacer(
+            modifier = Modifier
+                .height(100.dp)
+        )
     }
 }

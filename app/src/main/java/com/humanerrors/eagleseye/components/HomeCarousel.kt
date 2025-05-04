@@ -42,7 +42,7 @@ fun HomeCarousel(
     modifier: Modifier = Modifier,
 ) {
     val items = buildingItems()
-    val itemWidth = 350.dp
+    val itemWidth = 400.dp
     val carouselWidth = 412.dp
     val carouselHeight = 200.dp
     val itemSpacing = 8.dp

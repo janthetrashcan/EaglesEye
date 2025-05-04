@@ -13,13 +13,24 @@
 
     <!-- BUILDING INFO -->
     <string name="building_0_title">Canisius &amp; Gonzaga Building</string>
-    <string name="building_0_description">Canisius &amp; Gonzaga Building</string>
+    <string name="building_0_description">
+        The Canisius &amp; Gonzaga Building Building at Ateneo de Zamboanga University is a central academic hub housing key administrative offices and multiple schools. This multi-purpose facility accommodates the Office of Student Affairs, Registrar\'s Office, Vice President for Higher Education, and the Center for Information Technology Services, along with the Schools of Education, Management and Accountancy, Liberal Arts, and the Colleges of Nursing and Science, Information Technology, and Engineering. The building serves as both an administrative center and learning space, supporting the university\'s academic operations and student services.
+        \n\nThe building features specialized facilities including computer laboratories (basic and advanced), science labs (biology and chemistry), a research laboratory, and an animation laboratory. These spaces provide hands-on learning environments for STEM programs while supporting technological innovation across disciplines. The infrastructure enables both theoretical learning and practical application, particularly for science, technology, and creative disciplines.
+        \n\nNamed after St. Peter Canisius (a pioneering Jesuit educator) and constructed in 1967, the building embodies the university\'s commitment to holistic education. It integrates administrative functions with academic spaces, facilitating collaboration between students, faculty, and administrators while supporting the institution\'s mission of forming competent, ethical graduates. The Office of Student Affairs actively coordinates leadership programs and student activities, reinforcing the building\'s role as a center for both academic and personal development.
+    </string>
 
     <string name="building_1_title">Bellarmine &amp; Campion Building</string>
-    <string name="building_1_description">Bellarmine &amp; Campion Building</string>
+    <string name="building_1_description">
+        The Bellarmine-Campion Building serves as a vital service center for Ateneo de Zamboanga University, housing key offices that support student health, academic administration, and admissions. The University Infirmary provides essential healthcare services to the campus community, offering medical consultations, preventive care, and treatment with a focus on compassionate service. Alongside these health services, the building accommodates the Nursing Library, the Office of the President, and the Office of Admissions and Aid, which facilitates student enrollment while promoting accessibility for underprivileged scholars.
+        \n\nThis multifunctional building embodies the university\'s commitment to holistic student development by integrating health services with academic administration. The Office of Admissions and Aid operates with particular emphasis on the Ignatian values of service and excellence, working to expand educational opportunities for deserving students from Zamboanga and surrounding regions. Together, these offices create a supportive environment that addresses both the physical well-being and academic needs of the university community.
+    </string>
 
     <string name="building_2_title">Learning Resource Center Building</string>
-    <string name="building_2_description">Learning Resource Center Building</string>
+    <string name="building_2_description">
+        The Learning Resource Center serves as the academic support hub of Ateneo de Zamboanga University, housing essential services that enhance student development and institutional operations. The building accommodates the College Guidance and Counseling Office, which provides comprehensive student support programs, the expansive Fr. Jose T. Bacatan SJ Library with its specialized collections across three floors, and key administrative offices including the College Finance Office and University Research Office. These facilities work in synergy to create an environment conducive to learning, research, and student welfare.
+        \n\nThe centerpiece of the building is the university library, a 1,695-square-meter facility with capacity for 506 users. Its well-organized floors contain specialized sections including an American Corner, faculty research area, audio-visual center, and valuable Mindanao collections. The library\'s thoughtful layout supports diverse learning needs, from quiet study to collaborative research, while the inclusion of counseling services in the same building creates convenient access to both academic resources and student support systems.
+        \n\nConstructed in 1987 through a grant from the United States government, the Learning Resource Center stands as a testament to international educational collaboration. The facility continues to fulfill its original mission of supporting academic excellence, now enhanced with modern resources while maintaining its core function as the university\'s knowledge center. Its integrated design brings together information resources, research support, financial services, and student counseling under one roof, creating an efficient ecosystem for academic success.
+    </string>
 
 
     <!-- OFFICE INFO -->

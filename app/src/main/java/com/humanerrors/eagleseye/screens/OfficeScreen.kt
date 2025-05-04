@@ -105,7 +105,7 @@ fun OfficeScreen (
                 text = context.getString(officeInfo.description),
                 style = MaterialTheme.typography.bodyMedium.copy(
                     fontSize = 16.sp,
-                    lineHeight = 22.sp
+                    lineHeight = 24.sp
                 ),
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Justify,
