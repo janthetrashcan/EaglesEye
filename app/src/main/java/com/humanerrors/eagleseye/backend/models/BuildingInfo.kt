@@ -1,8 +1,7 @@
-package com.humanerrors.eagleseye.components
+package com.humanerrors.eagleseye.backend.models
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.ui.res.stringResource
 import com.humanerrors.eagleseye.R
 
 data class BuildingInfo(
