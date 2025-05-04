@@ -72,11 +72,11 @@ fun ExploreScreen(
                     navController.navigate(route = SubScreenConstants.MAP_SCREEN_ROUTE)
                 }
                 .padding(20.dp)
-                .border(
-                    width = 2.dp,
-                    color = MaterialTheme.colorScheme.primary,
-                    shape = RoundedCornerShape(12.dp),
-                ),
+//                .border(
+//                    width = 2.dp,
+//                    color = MaterialTheme.colorScheme.primary,
+//                    shape = RoundedCornerShape(12.dp),
+//                ),
 
         ) {
             Image(
