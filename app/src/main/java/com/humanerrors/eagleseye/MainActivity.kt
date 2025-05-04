@@ -15,7 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
-import com.humanerrors.eagleseye.components.BuildingInfo
+import com.humanerrors.eagleseye.backend.models.BuildingInfo
 import com.humanerrors.eagleseye.nav.BottomNavigationBar
 import com.humanerrors.eagleseye.nav.Screen
 import com.humanerrors.eagleseye.screens.ExploreScreen
@@ -25,6 +25,7 @@ import com.humanerrors.eagleseye.ui.theme.AppTheme
 import com.humanerrors.eagleseye.components.Header
 import com.humanerrors.eagleseye.nav.SubScreenConstants
 import com.humanerrors.eagleseye.screens.BuildingScreen
+import com.humanerrors.eagleseye.screens.CBuildingScreen
 import com.humanerrors.eagleseye.screens.MapScreen
 
 /**
@@ -97,7 +98,10 @@ fun MainScreen(
 
         // Non Nav Bar screens
         composable(route = SubScreenConstants.MAP_SCREEN_ROUTE) {
-            MapScreen()
+            MapScreen(navController)
+        }
+        composable(route = SubScreenConstants.C_BUILDING_ROUTE) {
+            CBuildingScreen()
         }
         composable(route = SubScreenConstants.BUILDING_SCREEN_ROUTE) {
             BuildingScreen(buildingInfo = BuildingInfo(id = 0))
