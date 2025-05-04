@@ -36,6 +36,7 @@ import com.humanerrors.eagleseye.components.Header
 import com.humanerrors.eagleseye.nav.SubScreenConstants
 import com.humanerrors.eagleseye.screens.BuildingScreen
 import com.humanerrors.eagleseye.screens.CBuildingFloorSelectorDial
+import com.humanerrors.eagleseye.screens.CBuildingMapState
 import com.humanerrors.eagleseye.screens.CBuildingScreen
 import com.humanerrors.eagleseye.screens.MapScreen
 import kotlinx.coroutines.flow.map
@@ -60,8 +61,12 @@ class MainActivity : ComponentActivity() {
                     .map { it.destination.route }
                     .collectAsStateWithLifecycle(initialValue = null)
 
-                val cLobbyFloorState = remember { mutableIntStateOf(1) }
-
+                var cLobbyState by remember {
+                    mutableStateOf(CBuildingMapState(
+                        floor = 1,
+                        pinPlaceable = false
+                    ))
+                }
                 // Scaffold provides a basic layout structure for the app.
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
@@ -69,7 +74,10 @@ class MainActivity : ComponentActivity() {
                         if (currentRoute == SubScreenConstants.C_BUILDING_ROUTE) {
                             CBuildingFloorSelectorDial(
                                 onButtonClick = {
-                                    cLobbyFloorState.intValue = it
+                                    cLobbyState = cLobbyState.copy(floor = it)
+                                },
+                                onAddPinClick = {
+                                    cLobbyState = cLobbyState.copy(pinPlaceable = true)
                                 }
                             )
                         } else {
@@ -82,7 +90,10 @@ class MainActivity : ComponentActivity() {
                     // Display the main screen, passing the NavHostController and padding.
                     MainScreen(
                         navController = navController,
-                        cLobbyFloorState = cLobbyFloorState,
+                        cLobbyState = cLobbyState,
+                        cLobbyStateUpdatedEvent = {
+                            cLobbyState = it
+                        },
                         modifier = Modifier.padding(innerPadding) // Apply the padding to the main screen content.
                     )
                 }
@@ -116,7 +127,8 @@ fun MainScreen(
     // The bar is on the negative, this is not even the bare minimum of code quality but the extent of my wisdom
     // is finite, and Jetpack Compose is rising from its artificial shell to tell me
     // that this code sucks 📢📢📢📢📢📢📢📢 !!!!!!!
-    cLobbyFloorState: MutableIntState,
+    cLobbyState: CBuildingMapState,
+    cLobbyStateUpdatedEvent: (CBuildingMapState) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val graph = navController.createGraph(startDestination = Screen.Explore.route) {
@@ -135,7 +147,9 @@ fun MainScreen(
             MapScreen(navController)
         }
         composable(route = SubScreenConstants.C_BUILDING_ROUTE) {
-            CBuildingScreen(cLobbyFloorState.intValue)
+            CBuildingScreen(cLobbyState) {
+                cLobbyStateUpdatedEvent(it)
+            }
         }
         composable(route = SubScreenConstants.BUILDING_SCREEN_ROUTE) {
             BuildingScreen(buildingInfo = BuildingInfo(id = 0))
@@ -163,7 +177,13 @@ fun MainScreenPreview() {
         ) { innerPadding ->
             MainScreen(
                 navController = navController,
-                cLobbyFloorState = remember { mutableIntStateOf(1) },
+                cLobbyState = CBuildingMapState(
+                    1,
+                    true
+                ),
+                cLobbyStateUpdatedEvent = {
+
+                },
                 modifier = Modifier.padding(innerPadding)
             )
         }
