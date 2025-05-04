@@ -23,4 +23,5 @@
     <string name="lorem">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi justo, imperdiet vitae ultrices et, finibus sit amet lectus. Aliquam erat volutpat. Integer vel nibh ipsum. Integer at ex purus. Morbi id leo ut orci fringilla congue at id nunc. Aenean vel tempor augue. Nulla ut neque nisl. Aliquam scelerisque dolor nec iaculis iaculis. In eget dictum orci. Ut sollicitudin mollis felis non suscipit. Morbi semper vehicula urna ut pulvinar. Proin et sapien eu sem vehicula congue vitae a magna. Vestibulum nibh mi, viverra eget dui ut, iaculis iaculis diam. Sed urna nunc, efficitur viverra commodo vel, pulvinar elementum eros.
     </string>
+    <string name="title_activity_building_info">BuildingInfoActivity</string>
 </resources>

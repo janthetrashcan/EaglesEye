@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -28,7 +30,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.humanerrors.eagleseye.R
+import com.humanerrors.eagleseye.backend.models.BuildingInfo
 import com.humanerrors.eagleseye.components.HomeCarousel
+import com.humanerrors.eagleseye.components.ItemCard
 import com.humanerrors.eagleseye.nav.SubScreenConstants
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -37,15 +41,18 @@ import com.humanerrors.eagleseye.nav.SubScreenConstants
 fun ExploreScreen(
     navController: NavController = rememberNavController()
 ) {
+    val buildingItems = listOf(
+        BuildingInfo(id = 0, title = "Bellarmine-Campion Hall", description = R.string.lorem, imageSrc = R.drawable.home_carousel_image_1),
+        BuildingInfo(id = 1, title = "Canisius-Gonzaga Building", description = R.string.lorem, imageSrc = R.drawable.home_carousel_image_2),
+        BuildingInfo(id = 2, title = "LRC Building", description = R.string.lorem, imageSrc = R.drawable.home_carousel_image_3),
+    )
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
     ) {
-        Button(onClick = { navController.navigate(route = SubScreenConstants.BUILDING_SCREEN_ROUTE) }) {
-            Text (text = "open building info screen")
-        }
-        // PLACEHOLDER 1
+        // Carousel
         Text(
             text = "Explore AdZU",
             style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold, fontSize = 24.sp),
@@ -55,7 +62,7 @@ fun ExploreScreen(
         )
         HomeCarousel()
 
-        // PLACEHOLDER 2
+        // Map
         Text(
             text = "Salvador Campus",
             style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold, fontSize = 24.sp),
@@ -84,6 +91,20 @@ fun ExploreScreen(
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.FillWidth
             )
+        }
+
+        Column (
+            modifier = Modifier
+                .padding(20.dp)
+        ) {
+            for (buildingItem in buildingItems) {
+                ItemCard(buildingInfo = buildingItem,
+                    modifier = Modifier
+                        .padding(top = 10.dp)
+                        .fillMaxHeight()
+                        .fillMaxWidth()
+                )
+            }
         }
     }
 }

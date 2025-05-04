@@ -26,7 +26,8 @@ import com.humanerrors.eagleseye.backend.models.BuildingInfo
 @Composable
 fun BuildingScreen (
     navController: NavController = rememberNavController(),
-    buildingInfo: BuildingInfo
+    buildingInfo: BuildingInfo,
+    modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
 

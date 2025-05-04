@@ -254,7 +254,7 @@ val montserrat = FontFamily(
     Font(R.font.montserrat_regular, FontWeight.Normal),
     Font(R.font.montserrat_medium, FontWeight.Medium),
     Font(R.font.montserrat_bold, FontWeight.Bold),
-    Font(R.font.montserrat_light, FontWeight.Light)
+    Font(R.font.montserrat_light, FontWeight.Light),
 )
 
 val MainTypography = Typography(
@@ -282,6 +282,11 @@ val MainTypography = Typography(
         fontFamily = montserrat,
         fontWeight = FontWeight.Bold,
         fontSize = 24.sp
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = montserrat,
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp
     ),
     bodyLarge = TextStyle(
         fontFamily = montserrat,
