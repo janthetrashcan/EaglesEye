@@ -136,7 +136,7 @@ fun MainScreen(
             ExploreScreen(navController)
         }
         composable(route = Screen.Saved.route) {
-            SavedScreen()
+            SavedScreen(navController)
         }
         composable(route = Screen.Updates.route) {
             UpdatesScreen(navController)
